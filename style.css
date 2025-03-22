@@ -24,7 +24,6 @@ header {
 }
 
 .pesquisa {
-    
     display: flex;
     text-align: center;
     justify-content: center;
@@ -34,4 +33,29 @@ header {
     padding: 5px;
     margin-left: 10px;
     
+}
+
+.pesquisa input {
+    border: none;
+    padding: 5px;
+    width: 200px;
+}
+
+.pesquisa .Imgdapesquisa{
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+}
+
+.menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu .Imgdomenu{
+    width: 60px;
+    height: 60px;
+    margin-left: 5px;
+    padding: 10px;
 }
