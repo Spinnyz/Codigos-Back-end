@@ -151,28 +151,24 @@ function initializeFollowButtons() {
 }
 
 
-/**
- * Initialize post analytics and tracking
- */
+
 function initializePostAnalytics() {
     const posts = document.querySelectorAll('.post');
     
     posts.forEach(post => {
-        // Track post views
+        
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Post is visible in viewport
-                    // In a real application, you would send this data to your analytics service
+
                     console.log('Post view:', post.querySelector('.user-info h2').textContent);
                     observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.5 }); // Post is considered viewed when 50% visible
+        }, { threshold: 0.5 }); 
         
         observer.observe(post);
         
-        // Track engagement (all clicks on post)
         post.addEventListener('click', function(e) {
             // In a real application, you would track different types of engagement
             const target = e.target.closest('button');
