@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     initializeComments();
     
-    // Initialize bookmark functionality
+   
     initializeBookmarks();
     
     // Initialize follow buttons
