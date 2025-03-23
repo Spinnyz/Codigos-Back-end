@@ -124,9 +124,7 @@ function initializeBookmarks() {
     });
 }
 
-/**
- * Handle follow buttons
- */
+
 function initializeFollowButtons() {
     const followButtons = document.querySelectorAll('.follow-link');
     
@@ -134,13 +132,13 @@ function initializeFollowButtons() {
         button.addEventListener('click', function(e) {
             e.preventDefault();
             
-            // Toggle follow state
+            
             if (this.textContent === 'Seguir') {
                 this.textContent = 'Seguindo';
                 this.style.color = '#262626';
                 this.style.fontWeight = '400';
                 
-                // Get username from the suggestion item
+              
                 const username = this.closest('.suggestion-item').querySelector('h5').textContent;
                 showNotification(`Agora você está seguindo ${username}`);
             } else {
