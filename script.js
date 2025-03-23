@@ -17,9 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializePostAnalytics();
 });
 
-/**
- * Handle like button functionality
- */
+
 function initializeLikeButtons() {
     const likeButtons = document.querySelectorAll('.actions-left button:first-child');
     
