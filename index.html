@@ -1,98 +1,289 @@
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Alustagram</title>
-            <link rel="stylesheet" href="style.css">
-        </head>
-        <body>
-            <header>
-                <h1>Alustagram</h1>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alustagram</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Alustagram</h1>
+        </div>
 
-                <nav class="main-nav">
-                    <a href="#" aria-label="Home"><img src="https://img.icons8.com/ios/50/000000/home--v1.png" alt="Home"></a>
-                    <a href="#" aria-label="Compass"><img src="https://img.icons8.com/ios/50/000000/compass--v1.png" alt="Compass"></a>
-                    <a href="#" aria-label="Add Post"><img src="https://img.icons8.com/ios/50/000000/plus-math.png" alt="Add Post"></a>
-                    <a href="#" aria-label="Likes"><img src="https://img.icons8.com/ios/50/000000/like--v1.png" alt="Likes"></a>
-                    <a href="#" aria-label="Notifications"><img src="https://img.icons8.com/ios/50/000000/bell.png" alt="Notifications"></a>
-                    <a href="#" aria-label="Messages"><img src="https://img.icons8.com/ios/50/000000/messages-mac.png" alt="Messages"></a>
-                    <a href="#" aria-label="Profile"><img src="https://img.icons8.com/ios-filled/50/000000/user-male-circle.png" alt="Profile"></a>
-                </nav>
+        <div class="search-nav">
+            <img src="https://img.icons8.com/ios/50/000000/search--v1.png" alt="Buscar">
+            <input type="text" placeholder="Conecte-se com Todos">
+        </div>
 
-                <nav class="search-nav">
-                    <img src="https://img.icons8.com/ios/50/000000/search--v1.png" alt="Search">
-                    <input type="text" placeholder="Conecte-se com Todos">
-                </nav>
-            </header>
+        <nav class="main-nav">
+            <a href="#" aria-label="Home"><img src="https://img.icons8.com/ios/50/000000/home--v1.png" alt="Home"></a>
+            <a href="#" aria-label="Explorar"><img src="https://img.icons8.com/ios/50/000000/compass--v1.png" alt="Explorar"></a>
+            <a href="#" aria-label="Adicionar Post"><img src="https://img.icons8.com/ios/50/000000/plus-math.png" alt="Adicionar Post"></a>
+            <a href="#" aria-label="Curtidas"><img src="https://img.icons8.com/ios/50/000000/like--v1.png" alt="Curtidas"></a>
+            <a href="#" aria-label="Notificações"><img src="https://img.icons8.com/ios/50/000000/bell.png" alt="Notificações"></a>
+            <a href="#" aria-label="Mensagens"><img src="https://img.icons8.com/ios/50/000000/messages-mac.png" alt="Mensagens"></a>
+            <a href="#" aria-label="Perfil"><img src="https://img.icons8.com/ios-filled/50/000000/user-male-circle.png" alt="Perfil"></a>
+        </nav>
+    </header>
 
-            <main>
-                <div class="postagem">
-                    <div class="post1"><img  class="Usuarios" src="https://img.icons8.com/ios/50/000000/user-male-circle.png"> 
-                    <h2>Rubens_Jonesburg69</h2>
-                    
+    <main>
+        <div class="feed">
+            <!-- Post 1 -->
+            <article class="post">
+                <div class="post-header">
+                    <img class="avatar" src="https://img.icons8.com/ios/50/000000/user-male-circle.png" alt="Avatar"> 
+                    <div class="user-info">
+                        <h2>Rubens_Jonesburg69</h2>
+                        <span class="location">São Paulo, Brasil</span>
                     </div>
-                    <div class="text">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat voluptate dolor culpa facere sed qui id nam laboriosam. Nulla fugiat optio quis accusamus. Impedit provident optio fugiat dolores aperiam nemo.</p>
-
-                    </div>
-                    <div class="interação">
-                        <a href=""><img src="https://img.icons8.com/ios/50/000000/like--v1.png" alt="Likes"></a>
-                        <a href=""><img src="https://img.icons8.com/ios/50/000000/messages-mac.png" alt="Messages"></a> 
-                        <a href=""><img src="https://img.icons8.com/ios/50/000000/share--v1.png" alt="Share"></a>
-                        
-                    </div>
-                    <div class="Descrição">
-                        <p> ❤️ 722 Likes</p>
-                        <p> 💬 12 Comentários</p>
-                        <p>Rubens_Jonesburg69: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero velit.</p>
-                        
-                        <div class="post1"><img  class="Usuarios" src="https://img.icons8.com/ios/50/000000/user-male-circle.png"> 
-                            <h2>Rubens_Jonesburg69</h2>
-                            
-                            </div>
-                            <div class="text">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat voluptate dolor culpa facere sed qui id nam laboriosam. Nulla fugiat optio quis accusamus. Impedit provident optio fugiat dolores aperiam nemo.</p>
-                
-                            </div>
-                            <div class="interação">
-                                <a href=""><img src="https://img.icons8.com/ios/50/000000/like--v1.png" alt="Likes"></a>
-                                <a href=""><img src="https://img.icons8.com/ios/50/000000/messages-mac.png" alt="Messages"></a> 
-                                <a href=""><img src="https://img.icons8.com/ios/50/000000/share--v1.png" alt="Share"></a>
-                                
-                            </div>
-                            <div class="Descrição">
-                                <p> ❤️ 722 Likes</p>
-                                <p> 💬 12 Comentários</p>
-                                <p>Rubens_Jonesburg69: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero velit.</p>
-
-                                <div class="post1"><img  class="Usuarios" src="https://img.icons8.com/ios/50/000000/user-male-circle.png"> 
-                                    <h2>Rubens_Jonesburg69</h2>
-                                    
-                                    </div>
-                                    <div class="text">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat voluptate dolor culpa facere sed qui id nam laboriosam. Nulla fugiat optio quis accusamus. Impedit provident optio fugiat dolores aperiam nemo.</p>
-                        
-                                    </div>
-                                    <div class="interação">
-                                        <a href=""><img src="https://img.icons8.com/ios/50/000000/like--v1.png" alt="Likes"></a>
-                                        <a href=""><img src="https://img.icons8.com/ios/50/000000/messages-mac.png" alt="Messages"></a> 
-                                        <a href=""><img src="https://img.icons8.com/ios/50/000000/share--v1.png" alt="Share"></a>
-                                        
-                                    </div>
-                                    <div class="Descrição">
-                                        <p> ❤️ 722 Likes</p>
-                                        <p> 💬 12 Comentários</p>
-                                        <p>Rubens_Jonesburg69: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero velit.</p>
-                    </div>
-
-                    
+                    <button class="more-options">•••</button>
                 </div>
                 
+                <div class="post-content">
+                    As redes sociais revolucionaram a comunicação global, eliminando barreiras geográficas e permitindo a interconexão instantânea entre pessoas de diferentes partes do mundo. Historicamente, a difusão de ideias e informações era limitada pela distância e pelos meios tradicionais, como jornais e cartas. Hoje, com plataformas digitais, movimentos sociais, políticos e culturais podem se espalhar rapidamente, influenciando acontecimentos globais, como a Primavera Árabe e protestos contra injustiças sociais. Essa conectividade também impacta a geopolítica, facilitando a organização de comunidades e a disseminação de ideologias.
+                </div>
+                
+                <div class="post-actions">
+                    <div class="actions-left">
+                        <button><img src="https://img.icons8.com/ios/50/000000/like--v1.png" alt="Curtir"></button>
+                        <button><img src="https://img.icons8.com/ios/50/000000/messages-mac.png" alt="Comentar"></button>
+                        <button><img src="https://img.icons8.com/ios/50/000000/share--v1.png" alt="Compartilhar"></button>
+                    </div>
+                    <div class="actions-right">
+                        <button><img src="https://img.icons8.com/ios/50/000000/bookmark-ribbon--v1.png" alt="Salvar"></button>
+                    </div>
+                </div>
+                
+                <div class="post-details">
+                    <p class="likes"><strong>722 curtidas</strong></p>
+                    <p class="caption"><strong>Rubens_Jonesburg69</strong>  Redes Sociais e a Transformação da Geopolítica</p>
+                    <p class="comments-count">Ver todos os 12 comentários</p>
+                    <div class="comments">
+                    </div>
+                </div>
+                
+                <div class="add-comment">
+                    <img class="avatar-small" src="https://img.icons8.com/ios-filled/50/000000/user-male-circle.png" alt="Seu avatar">
+                    <input type="text" placeholder="Adicione um comentário...">
+                    <button>Publicar</button>
+                </div>
+            </article>
+
+            <!-- Post 2 -->
+            <article class="post">
+                <div class="post-header">
+                    <img class="avatar" src="https://img.icons8.com/ios/50/000000/user-male-circle.png" alt="Avatar"> 
+                    <div class="user-info">
+                        <h2>Will Smith</h2>
+                    </div>
+                    <button class="more-options">•••</button>
+                </div>
+                
+                <div class="post-content">
+                    As redes sociais levantam questões filosóficas sobre identidade, privacidade e a natureza das interações humanas. Pensadores contemporâneos discutem se a presença digital reflete ou distorce a realidade, promovendo um paradoxo entre autenticidade e curadoria da autoimagem. Além disso, plataformas como Facebook e Twitter desafiam conceitos clássicos de verdade, uma vez que a disseminação de informações falsas pode moldar a percepção coletiva. A constante busca por validação por meio de curtidas e compartilhamentos também levanta questionamentos sobre a felicidade e o sentido da vida na era digital.
+                </div>
+                
+                <div class="post-actions">
+                    <div class="actions-left">
+                        <button><img src="https://img.icons8.com/ios/50/000000/like--v1.png" alt="Curtir"></button>
+                        <button><img src="https://img.icons8.com/ios/50/000000/messages-mac.png" alt="Comentar"></button>
+                        <button><img src="https://img.icons8.com/ios/50/000000/share--v1.png" alt="Compartilhar"></button>
+                    </div>
+                    <div class="actions-right">
+                        <button><img src="https://img.icons8.com/ios/50/000000/bookmark-ribbon--v1.png" alt="Salvar"></button>
+                    </div>
+                </div>
+                
+                <div class="post-details">
+                    <p class="likes"><strong>846 curtidas</strong></p>
+                    <p class="caption"><strong>Will Smith</strong>  Redes Sociais e os Desafios da Filosofia Digital</p>
+                    <p class="comments-count">Ver todos os 24 comentários</p>
+                </div>
+                
+                <div class="add-comment">
+                    <img class="avatar-small" src="https://img.icons8.com/ios-filled/50/000000/user-male-circle.png" alt="Seu avatar">
+                    <input type="text" placeholder="Adicione um comentário...">
+                    <button>Publicar</button>
+                </div>
+            </article>
+
+            <!-- Post 3 -->
+            <article class="post">
+                <div class="post-header">
+                    <img class="avatar" src="https://img.icons8.com/ios/50/000000/user-male-circle.png" alt="Avatar"> 
+                    <div class="user-info">
+                        <h2>Neymar</h2>
+                        <span class="location">Sobrado, Paraiba</span>
+                    </div>
+                    <button class="more-options">•••</button>
+                </div>
+                
+                <div class="post-content">
+                    A sociedade passou por mudanças profundas com a popularização das redes sociais. O acesso instantâneo à informação democratizou o conhecimento, mas também criou desafios como a desinformação e a polarização política. A comunicação interpessoal sofreu transformações, com interações virtuais substituindo conversas presenciais em muitos contextos. Além disso, redes sociais influenciam comportamentos de consumo, moldam padrões estéticos e redefinem relações de trabalho, ampliando oportunidades de networking e empreendedorismo digital, mas também exacerbando problemas como a precarização do trabalho.
+                </div>
+                
+                <div class="post-actions">
+                    <div class="actions-left">
+                        <button><img src="https://img.icons8.com/ios/50/000000/like--v1.png" alt="Curtir"></button>
+                        <button><img src="https://img.icons8.com/ios/50/000000/messages-mac.png" alt="Comentar"></button>
+                        <button><img src="https://img.icons8.com/ios/50/000000/share--v1.png" alt="Compartilhar"></button>
+                    </div>
+                    <div class="actions-right">
+                        <button><img src="https://img.icons8.com/ios/50/000000/bookmark-ribbon--v1.png" alt="Salvar"></button>
+                    </div>
+                </div>
+                
+                <div class="post-details">
+                    <p class="likes"><strong>519 curtidas</strong></p>
+                    <p class="caption"><strong>Tech_Programmer</strong> O Impacto das Redes Sociais na Sociedade Moderna</p>
+                    <p class="comments-count">Ver todos os 18 comentários</p>
+                </div>
+                
+                <div class="add-comment">
+                    <img class="avatar-small" src="https://img.icons8.com/ios-filled/50/000000/user-male-circle.png" alt="Seu avatar">
+                    <input type="text" placeholder="Adicione um comentário...">
+                    <button>Publicar</button>
+                </div>
+            </article>
+
+            <!-- Post 4 (NOVO) -->
+            <article class="post">
+                <div class="post-header">
+                    <img class="avatar" src="https://img.icons8.com/ios/50/000000/user-male-circle.png" alt="Avatar"> 
+                    <div class="user-info">
+                        <h2>Tiringa</h2>
+                        <span class="location">Recife, Brasil</span>
+                    </div>
+                    <button class="more-options">•••</button>
+                </div>
+                
+                <div class="post-content">
+                    O impacto das redes sociais na saúde mental é um tema cada vez mais estudado. O uso excessivo dessas plataformas pode levar a problemas como ansiedade, depressão e baixa autoestima, especialmente entre os jovens. A constante exposição a vidas aparentemente perfeitas pode gerar comparações irreais e sentimentos de inadequação. No entanto, as redes sociais também oferecem suporte emocional, permitindo a conexão entre pessoas que compartilham experiências semelhantes e promovendo campanhas de conscientização sobre saúde mental. O desafio é encontrar um equilíbrio saudável no uso dessas tecnologias.
 
 
-            </main>
+                </div>
+                
+                <div class="post-actions">
+                    <div class="actions-left">
+                        <button><img src="https://img.icons8.com/ios/50/000000/like--v1.png" alt="Curtir"></button>
+                        <button><img src="https://img.icons8.com/ios/50/000000/messages-mac.png" alt="Comentar"></button>
+                        <button><img src="https://img.icons8.com/ios/50/000000/share--v1.png" alt="Compartilhar"></button>
+                    </div>
+                    <div class="actions-right">
+                        <button><img src="https://img.icons8.com/ios/50/000000/bookmark-ribbon--v1.png" alt="Salvar"></button>
+                    </div>
+                </div>
+                
+                <div class="post-details">
+                    <p class="likes"><strong>935 curtidas</strong></p>
+                    <p class="caption"><strong>Tiringa  </strong>  Redes Sociais e os Desafios para a Saúde Mental
+                    </p>
+                    <p class="comments-count">Ver todos os 37 comentários</p>
+                </div>
+                
+                <div class="add-comment">
+                    <img class="avatar-small" src="https://img.icons8.com/ios-filled/50/000000/user-male-circle.png" alt="Seu avatar">
+                    <input type="text" placeholder="Adicione um comentário...">
+                    <button>Publicar</button>
+                </div>
+            </article>
 
-            <script src="script.js"></script>
-        </body>
-        </html>
+            <!-- Post 5 (NOVO) -->
+            <article class="post">
+                <div class="post-header">
+                    <img class="avatar" src="https://img.icons8.com/ios/50/000000/user-male-circle.png" alt="Avatar"> 
+                    <div class="user-info">
+                        <h2>Flávio Caça-Rato</h2>
+                        <span class="location">Recife, Brasil</span>
+                    </div>
+                    <button class="more-options">•••</button>
+                </div>
+                
+                <div class="post-content">
+                    Um dos principais impactos sociais das redes sociais é sua capacidade de mobilizar coletivos em prol de causas diversas. Campanhas como #MeToo, #BlackLivesMatter e o ativismo ambiental ganharam força por meio das plataformas digitais, promovendo mudanças sociais significativas. Ao mesmo tempo, esse fenômeno levanta debates sobre a efetividade do ativismo digital e seus limites, questionando se a participação online substitui ou complementa ações concretas no mundo real. A mobilização online também pode ser usada para fins negativos, como discursos de ódio e manipulação política.
+                </div>
+                
+                <div class="post-actions">
+                    <div class="actions-left">
+                        <button><img src="https://img.icons8.com/ios/50/000000/like--v1.png" alt="Curtir"></button>
+                        <button><img src="https://img.icons8.com/ios/50/000000/messages-mac.png" alt="Comentar"></button>
+                        <button><img src="https://img.icons8.com/ios/50/000000/share--v1.png" alt="Compartilhar"></button>
+                    </div>
+                    <div class="actions-right">
+                        <button><img src="https://img.icons8.com/ios/50/000000/bookmark-ribbon--v1.png" alt="Salvar"></button>
+                    </div>
+                </div>
+                
+                <div class="post-details">
+                    <p class="likes"><strong>674 curtidas</strong></p>
+                    <p class="caption"><strong>Flávio Caça-Rato</strong> Redes Sociais e a Mobilização Coletiva Global</p>
+                    <p class="comments-count">Ver todos os 29 comentários</p>
+                </div>
+                
+                <div class="add-comment">
+                    <img class="avatar-small" src="https://img.icons8.com/ios-filled/50/000000/user-male-circle.png" alt="Seu avatar">
+                    <input type="text" placeholder="Adicione um comentário...">
+                    <button>Publicar</button>
+                </div>
+            </article>
+        </div>
+        
+        <aside class="sidebar">
+            <div class="profile-card">
+                <img class="avatar-large" src="https://img.icons8.com/ios-filled/50/000000/user-male-circle.png" alt="Seu perfil">
+                <div>
+                    <h3>Alustrau Luciano</h3>
+                    <p></p>
+                </div>
+                <a href="#" class="switch-link">Trocar</a>
+            </div>
+
+            <div class="suggestions">
+                <div class="suggestions-header">
+                    <h4>Sugestões pra seguir :) </h4>
+                    <a href="#" class="view-all">Ver tudo</a>
+                </div>
+                
+                <div class="suggestion-item">
+                    <img class="avatar-medium" src="https://img.icons8.com/ios-filled/50/000000/user-male-circle.png" alt="Sugestão">
+                    <div class="suggestion-info">
+                        <h5>Silvio Santos
+                        </h5>
+                    </div>
+                    <a href="#" class="follow-link">Seguir</a>
+                </div>
+                
+                <div class="suggestion-item">
+                    <img class="avatar-medium" src="https://img.icons8.com/ios-filled/50/000000/user-male-circle.png" alt="Sugestão">
+                    <div class="suggestion-info">
+                        <h5>Kanye West
+                        </h5>
+                        
+                    </div>
+                    <a href="#" class="follow-link">Seguir</a>
+                </div>
+                
+                <div class="suggestion-item">
+                    <img class="avatar-medium" src="https://img.icons8.com/ios-filled/50/000000/user-male-circle.png" alt="Sugestão">
+                    <div class="suggestion-info">
+                        <h5>IShowSpeed
+                        </h5>
+                        
+                    </div>
+                    <a href="#" class="follow-link">Seguir</a>
+                </div>
+            </div>
+
+            <div class="footer">
+                
+                <p class="copyright">© 2025 ALUSTAU</p>
+            </div>
+        </aside>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
