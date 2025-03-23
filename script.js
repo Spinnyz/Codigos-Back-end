@@ -201,16 +201,13 @@ function initializePostAnalytics() {
     });
 }
 
-/**
- * Show a temporary notification message
- */
+
 function showNotification(message) {
-    // Create notification element
+
     const notification = document.createElement('div');
     notification.classList.add('notification');
     notification.textContent = message;
-    
-    // Add to page
+
     document.body.appendChild(notification);
     
     // Show notification with animation
