@@ -84,24 +84,20 @@ function initializeComments() {
             const post = this.closest('.post');
 
             const commentsContainer = post.querySelector('.comments');
-            
-            // Create new comment element
+
             const newComment = document.createElement('p');
             newComment.innerHTML = `<strong>seu_usuario</strong> ${commentText}`;
-            
-            // Add the comment to the container
+  
             commentsContainer.appendChild(newComment);
             
-            // Update comments count
+        
             const commentsCountElement = post.querySelector('.comments-count');
             const currentCount = parseInt(commentsCountElement.textContent.match(/\d+/)[0]);
             commentsCountElement.textContent = `Ver todos os ${currentCount + 1} comentários`;
-            
-            // Clear input field
+           
             input.value = '';
             button.style.opacity = '0.5';
-            
-            // Show notification
+    
             showNotification('Comentário adicionado!');
         });
     });
