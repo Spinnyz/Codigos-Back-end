@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
    
     initializeBookmarks();
     
-    // Initialize follow buttons
+ 
     initializeFollowButtons();
     
     // Initialize search functionality
