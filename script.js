@@ -54,7 +54,7 @@ function initializeLikeButtons() {
                 likesCount--;
             }
             
-            // Update likes count text
+
             likesElement.textContent = likesCount + (likesCount === 1 ? ' curtida' : ' curtidas');
         });
     });
@@ -62,9 +62,7 @@ function initializeLikeButtons() {
 
 
 
-/**
- * Handle comment submission and display
- */
+
 function initializeComments() {
     const commentForms = document.querySelectorAll('.add-comment');
     
@@ -72,20 +70,19 @@ function initializeComments() {
         const input = form.querySelector('input');
         const button = form.querySelector('button');
         
-        // Disable/enable submit button based on input content
+
         input.addEventListener('input', function() {
             button.style.opacity = this.value.trim() ? '1' : '0.5';
         });
         
-        // Handle comment submission
+
         button.addEventListener('click', function() {
             const commentText = input.value.trim();
             if (!commentText) return;
             
-            // Get the post element
+
             const post = this.closest('.post');
-            
-            // Get comments container
+
             const commentsContainer = post.querySelector('.comments');
             
             // Create new comment element
