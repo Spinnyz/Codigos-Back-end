@@ -31,25 +31,24 @@ function initializeLikeButtons() {
 
             let likesCount = parseInt(likesElement.textContent);
             
-            // Toggle like state
+
             const img = this.querySelector('img');
             if (img.src.includes('like--v1.png')) {
-                // Change to filled heart icon when liked
+ 
                 img.src = 'https://img.icons8.com/ios-filled/50/FF3040/like--v1.png';
                 img.style.filter = 'none';
                 likesCount++;
                 
-                // Add like animation
+
                 const heart = document.createElement('div');
                 heart.classList.add('heart-animation');
                 post.querySelector('.post-content').appendChild(heart);
                 
-                // Remove animation after it completes
+
                 setTimeout(() => {
                     heart.remove();
                 }, 1000);
             } else {
-                // Change back to outline heart icon when unliked
                 img.src = 'https://img.icons8.com/ios/50/000000/like--v1.png';
                 img.style.filter = '';
                 likesCount--;
