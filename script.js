@@ -103,22 +103,20 @@ function initializeComments() {
     });
 }
 
-/**
- * Handle bookmark functionality
- */
+
 function initializeBookmarks() {
     const bookmarkButtons = document.querySelectorAll('.actions-right button');
     
     bookmarkButtons.forEach(button => {
         button.addEventListener('click', function() {
-            // Toggle bookmark state
+
             const img = this.querySelector('img');
             if (img.src.includes('bookmark-ribbon--v1.png')) {
-                // Change to filled bookmark icon
+  
                 img.src = 'https://img.icons8.com/ios-filled/50/000000/bookmark-ribbon--v1.png';
                 showNotification('Post salvo em sua coleção');
             } else {
-                // Change back to outline bookmark icon
+
                 img.src = 'https://img.icons8.com/ios/50/000000/bookmark-ribbon--v1.png';
                 showNotification('Post removido de sua coleção');
             }
