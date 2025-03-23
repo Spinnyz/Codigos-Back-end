@@ -203,7 +203,6 @@ function showNotification(message) {
     }, 3000);
 }
 
-// Add CSS for new elements created by JS
 const styleSheet = document.createElement('style');
 styleSheet.textContent = `
     .heart-animation {
