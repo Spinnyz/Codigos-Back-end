@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     initializeLikeButtons();
     
-    // Initialize comment functionality
+
     initializeComments();
     
     // Initialize bookmark functionality
