@@ -12,10 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
  
     initializeFollowButtons();
     
-    // Initialize search functionality
     initializeSearch();
     
-    // Initialize post interaction tracking
     initializePostAnalytics();
 });
 
