@@ -23,13 +23,12 @@ function initializeLikeButtons() {
     
     likeButtons.forEach(button => {
         button.addEventListener('click', function() {
-            // Get the post element
             const post = this.closest('.post');
             
-            // Get the likes count element
+
             const likesElement = post.querySelector('.likes strong');
             
-            // Get current likes count
+
             let likesCount = parseInt(likesElement.textContent);
             
             // Toggle like state
