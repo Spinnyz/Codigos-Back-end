@@ -170,7 +170,7 @@ function initializePostAnalytics() {
         observer.observe(post);
         
         post.addEventListener('click', function(e) {
-            // In a real application, you would track different types of engagement
+           
             const target = e.target.closest('button');
             if (target) {
                 const action = target.querySelector('img')?.alt || 'interaction';
@@ -189,12 +189,12 @@ function showNotification(message) {
 
     document.body.appendChild(notification);
     
-    // Show notification with animation
+    
     setTimeout(() => {
         notification.classList.add('show');
     }, 10);
     
-    // Remove after display time
+    
     setTimeout(() => {
         notification.classList.remove('show');
         setTimeout(() => {
