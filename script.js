@@ -1,6 +1,6 @@
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize like buttons
+
     initializeLikeButtons();
     
     // Initialize comment functionality
