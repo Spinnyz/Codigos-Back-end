@@ -1,96 +1,328 @@
-// script.js
+// Wait for the document to fully load
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize like buttons
+    initializeLikeButtons();
+    
+    // Initialize comment functionality
+    initializeComments();
+    
+    // Initialize bookmark functionality
+    initializeBookmarks();
+    
+    // Initialize follow buttons
+    initializeFollowButtons();
+    
+    // Initialize search functionality
+    initializeSearch();
+    
+    // Initialize post interaction tracking
+    initializePostAnalytics();
+});
 
-// Função para curtir um post
-function likePost(post) {
-    const likeButton = post.querySelector('.actions-left button');
-    const likeIcon = likeButton.querySelector('img');
-    const likesCount = post.querySelector('.likes strong');
-
-    likeButton.addEventListener('click', () => {
-        let likes = parseInt(likesCount.textContent);
-
-        // Alternar entre curtido e não curtido
-        if (likeButton.classList.contains('liked')) {
-            likes--;
-            likeButton.classList.remove('liked');
-            likeIcon.src = "https://img.icons8.com/ios/50/000000/like--v1.png"; // Ícone normal
-        } else {
-            likes++;
-            likeButton.classList.add('liked');
-            likeIcon.src = "https://img.icons8.com/ios-filled/50/000000/like.png"; // Ícone curtido
-        }
-
-        likesCount.textContent = likes + ' curtidas';
-
-        // Adiciona uma animação de like
-        likeButton.classList.add('like-animation');
-        setTimeout(() => {
-            likeButton.classList.remove('like-animation');
-        }, 300);
+/**
+ * Handle like button functionality
+ */
+function initializeLikeButtons() {
+    const likeButtons = document.querySelectorAll('.actions-left button:first-child');
+    
+    likeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Get the post element
+            const post = this.closest('.post');
+            
+            // Get the likes count element
+            const likesElement = post.querySelector('.likes strong');
+            
+            // Get current likes count
+            let likesCount = parseInt(likesElement.textContent);
+            
+            // Toggle like state
+            const img = this.querySelector('img');
+            if (img.src.includes('like--v1.png')) {
+                // Change to filled heart icon when liked
+                img.src = 'https://img.icons8.com/ios-filled/50/FF3040/like--v1.png';
+                img.style.filter = 'none';
+                likesCount++;
+                
+                // Add like animation
+                const heart = document.createElement('div');
+                heart.classList.add('heart-animation');
+                post.querySelector('.post-content').appendChild(heart);
+                
+                // Remove animation after it completes
+                setTimeout(() => {
+                    heart.remove();
+                }, 1000);
+            } else {
+                // Change back to outline heart icon when unliked
+                img.src = 'https://img.icons8.com/ios/50/000000/like--v1.png';
+                img.style.filter = '';
+                likesCount--;
+            }
+            
+            // Update likes count text
+            likesElement.textContent = likesCount + (likesCount === 1 ? ' curtida' : ' curtidas');
+        });
     });
 }
 
-// Função para adicionar um comentário
-function addComment(post) {
-    const commentInput = post.querySelector('.add-comment input');
-    const commentButton = post.querySelector('.add-comment button');
-    const commentsSection = post.querySelector('.comments');
-    const commentsCount = post.querySelector('.comments-count');
 
-    commentButton.addEventListener('click', () => {
-        const commentText = commentInput.value.trim();
-        if (commentText !== '') {
-            // Cria um novo comentário
+
+/**
+ * Handle comment submission and display
+ */
+function initializeComments() {
+    const commentForms = document.querySelectorAll('.add-comment');
+    
+    commentForms.forEach(form => {
+        const input = form.querySelector('input');
+        const button = form.querySelector('button');
+        
+        // Disable/enable submit button based on input content
+        input.addEventListener('input', function() {
+            button.style.opacity = this.value.trim() ? '1' : '0.5';
+        });
+        
+        // Handle comment submission
+        button.addEventListener('click', function() {
+            const commentText = input.value.trim();
+            if (!commentText) return;
+            
+            // Get the post element
+            const post = this.closest('.post');
+            
+            // Get comments container
+            const commentsContainer = post.querySelector('.comments');
+            
+            // Create new comment element
             const newComment = document.createElement('p');
-            newComment.textContent = commentText;
-            newComment.classList.add('comment-animation'); // Adiciona animação
-            commentsSection.appendChild(newComment);
-
-            // Atualiza o contador de comentários
-            const currentCount = parseInt(commentsCount.textContent.replace(/\D/g, ''));
-            commentsCount.textContent = `Ver todos os ${currentCount + 1} comentários`;
-
-            // Limpa o campo de comentário
-            commentInput.value = '';
-
-            // Remove a animação após 300ms
-            setTimeout(() => {
-                newComment.classList.remove('comment-animation');
-            }, 300);
-        }
+            newComment.innerHTML = `<strong>seu_usuario</strong> ${commentText}`;
+            
+            // Add the comment to the container
+            commentsContainer.appendChild(newComment);
+            
+            // Update comments count
+            const commentsCountElement = post.querySelector('.comments-count');
+            const currentCount = parseInt(commentsCountElement.textContent.match(/\d+/)[0]);
+            commentsCountElement.textContent = `Ver todos os ${currentCount + 1} comentários`;
+            
+            // Clear input field
+            input.value = '';
+            button.style.opacity = '0.5';
+            
+            // Show notification
+            showNotification('Comentário adicionado!');
+        });
     });
 }
 
-// Função para seguir um usuário
-function followUser(followButton) {
-    followButton.addEventListener('click', () => {
-        if (followButton.textContent === 'Seguir') {
-            followButton.textContent = 'Seguindo';
-            followButton.classList.add('follow-animation'); // Adiciona animação
-            setTimeout(() => {
-                followButton.classList.remove('follow-animation');
-            }, 300);
-        } else {
-            followButton.textContent = 'Seguir';
-        }
+/**
+ * Handle bookmark functionality
+ */
+function initializeBookmarks() {
+    const bookmarkButtons = document.querySelectorAll('.actions-right button');
+    
+    bookmarkButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Toggle bookmark state
+            const img = this.querySelector('img');
+            if (img.src.includes('bookmark-ribbon--v1.png')) {
+                // Change to filled bookmark icon
+                img.src = 'https://img.icons8.com/ios-filled/50/000000/bookmark-ribbon--v1.png';
+                showNotification('Post salvo em sua coleção');
+            } else {
+                // Change back to outline bookmark icon
+                img.src = 'https://img.icons8.com/ios/50/000000/bookmark-ribbon--v1.png';
+                showNotification('Post removido de sua coleção');
+            }
+        });
     });
 }
 
-// Aplicar as funções a todos os posts
-document.querySelectorAll('.post').forEach(post => {
-    likePost(post);
-    addComment(post);
-});
-
-// Aplicar a função de seguir a todos os botões de seguir
-document.querySelectorAll('.follow-link').forEach(followButton => {
-    followUser(followButton);
-});
-
-// Função para mostrar/ocultar opções de post
-document.querySelectorAll('.more-options').forEach(button => {
-    button.addEventListener('click', () => {
-        alert('Opções do post clicadas!');
-        // Aqui você pode adicionar mais funcionalidades, como abrir um menu de opções
+/**
+ * Handle follow buttons
+ */
+function initializeFollowButtons() {
+    const followButtons = document.querySelectorAll('.follow-link');
+    
+    followButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Toggle follow state
+            if (this.textContent === 'Seguir') {
+                this.textContent = 'Seguindo';
+                this.style.color = '#262626';
+                this.style.fontWeight = '400';
+                
+                // Get username from the suggestion item
+                const username = this.closest('.suggestion-item').querySelector('h5').textContent;
+                showNotification(`Agora você está seguindo ${username}`);
+            } else {
+                this.textContent = 'Seguir';
+                this.style.color = '#0095f6';
+                this.style.fontWeight = '600';
+            }
+        });
     });
-});
+}
+
+
+/**
+ * Initialize post analytics and tracking
+ */
+function initializePostAnalytics() {
+    const posts = document.querySelectorAll('.post');
+    
+    posts.forEach(post => {
+        // Track post views
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Post is visible in viewport
+                    // In a real application, you would send this data to your analytics service
+                    console.log('Post view:', post.querySelector('.user-info h2').textContent);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 }); // Post is considered viewed when 50% visible
+        
+        observer.observe(post);
+        
+        // Track engagement (all clicks on post)
+        post.addEventListener('click', function(e) {
+            // In a real application, you would track different types of engagement
+            const target = e.target.closest('button');
+            if (target) {
+                const action = target.querySelector('img')?.alt || 'interaction';
+                console.log('Post engagement:', post.querySelector('.user-info h2').textContent, action);
+            }
+        });
+    });
+}
+
+/**
+ * Show a temporary notification message
+ */
+function showNotification(message) {
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.classList.add('notification');
+    notification.textContent = message;
+    
+    // Add to page
+    document.body.appendChild(notification);
+    
+    // Show notification with animation
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 10);
+    
+    // Remove after display time
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+            notification.remove();
+        }, 300);
+    }, 3000);
+}
+
+// Add CSS for new elements created by JS
+const styleSheet = document.createElement('style');
+styleSheet.textContent = `
+    .heart-animation {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100px;
+        height: 100px;
+        background-image: url('https://img.icons8.com/ios-filled/100/FF3040/like--v1.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        opacity: 0;
+        animation: heart-pulse 1s ease-in-out;
+    }
+    
+    @keyframes heart-pulse {
+        0% { opacity: 0; transform: translate(-50%, -50%) scale(0.1); }
+        15% { opacity: 1; }
+        30% { transform: translate(-50%, -50%) scale(1.2); }
+        45% { transform: translate(-50%, -50%) scale(0.8); }
+        60% { transform: translate(-50%, -50%) scale(1.1); }
+        100% { opacity: 0; transform: translate(-50%, -50%) scale(1); }
+    }
+    
+    .notification {
+        position: fixed;
+        bottom: -50px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #262626;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-size: 14px;
+        z-index: 1000;
+        transition: bottom 0.3s ease-in-out;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .notification.show {
+        bottom: 20px;
+    }
+    
+    .search-dropdown {
+        position: absolute;
+        top: 45px;
+        left: 0;
+        width: 375px;
+        background-color: white;
+        border-radius: 4px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        z-index: 10;
+    }
+    
+    .search-dropdown-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 16px;
+        border-bottom: 1px solid #dbdbdb;
+    }
+    
+    .search-dropdown-header h4 {
+        font-size: 16px;
+        font-weight: 600;
+    }
+    
+    .search-dropdown-header button {
+        color: #0095f6;
+        font-weight: 600;
+        font-size: 14px;
+    }
+    
+    .search-results {
+        max-height: 375px;
+        overflow-y: auto;
+    }
+    
+    .search-result-item {
+        display: flex;
+        align-items: center;
+        padding: 8px 16px;
+        cursor: pointer;
+    }
+    
+    .search-result-item:hover {
+        background-color: #fafafa;
+    }
+    
+    .no-results {
+        padding: 16px;
+        text-align: center;
+        color: #8e8e8e;
+    }
+`;
+document.head.appendChild(styleSheet);
