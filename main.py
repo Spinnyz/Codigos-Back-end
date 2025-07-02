@@ -1,28 +1,39 @@
-print("Bem-vindo ao Seara Bancus")
+opções = (f"""
+[D]- Deposito
+[S]- Saque
+[E]- Extrato
+[Q]- Sair
+""")
 
-saldo = 1000
+
+saque = 0
+deposito = 0
+limite = 500
+saldo = 0
+extrato = ""
+LIMITE_SAQUE = 3
+
+
 
 while True:
-    escolha = input("\nO que você deseja fazer? \n 1 - Depositar \n 2 - Sacar \n 3 - Ver Saldo \n 4 - Sair \n")
+    print (opções)
+    escolha = input(f"Digite a opção desejada:").upper().strip()
 
-    if escolha == "1":
-        deposito = int(input("Quanto você deseja depositar? \n"))
-        saldo += deposito
-        print(f"Seu novo saldo é: {saldo}")
+    #Deposito
+    if escolha == "D":
+        dep = float(input("Qual o valor de deposito:")) 
+        #Negativo
+        if dep <= 0:
+             print("Valor invalido tente novamente")
+             continue
+    
+    #deposito correto
+        else: 
+            saldo+=dep
+            print(f" Seu novo saldoX é {saldo:.2f}")
+            #extrato
+            extrato += f"Deposito no valor de  R${dep}"
 
-    elif escolha == "2":
-        saque = int(input("Quanto você deseja sacar? \n"))
-        if saque > saldo:
-            print("Saldo insuficiente")
-        else:
-            saldo -= saque
-            print(f"Seu novo saldo é: {saldo}")
-
-    elif escolha == "3":
-        print(f"Seu saldo é: {saldo}")
-
-    elif escolha == "4":
-        print("Obrigado por usar o Seara Bancus, volte sempre!")
-
-    else:
-        print("Opção inválida. Tente novamente!")
+    #saque
+    elif escolha == "S":
+        saq = float(input("Digite o valor de Saque:"))
