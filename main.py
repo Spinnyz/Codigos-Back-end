@@ -29,7 +29,6 @@ while True:
             saldo += dep
             print(f"Seu novo saldo é R$ {saldo:.2f}")
             # Extrato
-            extrato += f"Depósito no valor de R$ {dep}\n"
 
     # Saque
     elif escolha == "S":
@@ -57,3 +56,13 @@ while True:
             saldo -= saq
             print(f"Seu novo saldo é R$ {saldo}")
             LIMITE_SAQUE -= 1
+    #Extrato
+    elif escolha == "E":
+        print ("\n=========== EXTRATO ===========")
+        print (f"\nSeu Saldo é de {saldo:.2f}")
+
+    #Fim
+    elif escolha == "Q":
+        print("Volte sempre")
+        break
+        
