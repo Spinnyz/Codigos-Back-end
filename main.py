@@ -37,9 +37,11 @@ while True:
     #saque
     elif escolha == "S":
         saq = float(input("Digite o valor de Saque:"))
+    #Saque sem o saldo
         if saq > saldo:
             print("Valor insificiente")
             continue
+    #Saque negativo
         elif saq <= 0:
             print ("O valor minimo é R$1")
         
