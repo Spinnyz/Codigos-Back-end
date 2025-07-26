@@ -2,18 +2,36 @@
 
 #Criação de conta
 
-def criar_conta():
-    cpf = input ("Digite seu CPF")
+contas = []  # lista, não dicionário
 
+def criar_conta(contas):
+    cpf = input("Digite seu CPF: ")
+    if not cpf.isdigit() or len(cpf) != 11:
+        print("CPF inválido.")
+        return
+    
+    if filtro_conta(cpf, contas):
+        print("Usuário já existe.")
+        return  
+    
+    nome = input("Digite seu nome: ")
+    nascimento = input("Digite sua data de nascimento (DD/MM/AAAA): ")
+    endereco = input("Digite seu endereço: ")
+
+    contas.append({"Nome": nome, "CPF": cpf, "Nascimento": nascimento, "Endereço": endereco})
+    print("Registrado com sucesso!")
+    
+
+criar_conta(contas)
 
 #deposito
-    def depositar (saldo,valor,extrato):
+def depositar (saldo,valor,extrato):
         if valor > 0:
             saldo+= valor
             extrato += f'Depósito: R$ {valor:.2f}\n'
         else:
             print('Operação falhou! O valor informado é inválido.')
-    return saldo, extrato
+        return saldo, extrato
 
 #saque
 def sacar(saldo, valor, extrato, limite=500, numero_saques=0, limite_saques=3):
