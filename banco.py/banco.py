@@ -21,8 +21,7 @@ def sacar(*, saldo, valor, extrato, limite=500, numero_saques=0, limite_saques=3
     return saldo, extrato, numero_saques
 
 #extrato
-#extrato
-def exibir_extrato(saldo,extrato):
+def exibir_extrato(*,saldo,extrato):
     print("\n===== EXTRATO =====")
     if extrato:
         print(extrato)
@@ -32,3 +31,11 @@ def exibir_extrato(saldo,extrato):
     print("====================")
 
 
+while True:
+    print("""
+    [1] Depositar
+    [2] Sacar
+    [3] Extrato
+    [4] Sair
+    """)
+    opcao = input("Escolha uma opção: ")
