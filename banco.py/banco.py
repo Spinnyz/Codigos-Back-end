@@ -1,74 +1,23 @@
-opções = (f"""
-[D] - Depósito
-[S] - Saque
-[E] - Extrato
-[Q] - Sair
-""")
+#Banco
 
-saque = 0
-deposito = 0
-limite = 500
-saldo = 0
-extrato = ""
-LIMITE_SAQUE = 3
+#deposito
+def depositar (saldo,valor,extrato):
+    if valor > 0:
+        saldo+= valor
+        extrato += f'Depósito: R$ {valor:.2f}\n'
+    else:
+        print('Operação falhou! O valor informado é inválido.')
+    return saldo, extrato
 
-while True:
-    print(opções)
-    escolha = input(f"Digite a opção desejada:").upper().strip()
+#saque
+def sacar(*, saldo, valor, extrato, limite=500, numero_saques=0, limite_saques=3):
+    if saldo >= valor and valor > 0 and limite >= valor and numero_saques < limite_saques:
+        saldo -= valor
+        extrato += f"Saque: R$ {valor:.2f}\n"
+        numero_saques += 1
+    
+    else:
+        print("ERRO")
+    return saldo, extrato, numero_saques
 
-    # Depósito
-    if escolha == "D":
-        dep = float(input("Qual o valor do depósito:")) 
-        # Negativo
-        if dep <= 0:
-            print("Valor inválido, tente novamente")
-            continue
-
-        # Depósito correto
-        else: 
-            saldo += dep
-            print(f"Seu novo saldo é R$ {saldo:.2f}")
-            # Extrato
-            extrato += f"Depósito: +R$ {dep:.2f}\n"
-
-    # Saque
-    elif escolha == "S":
-        # Sem limite
-        if LIMITE_SAQUE == 0:
-            print("Você já fez as 3 transações do dia")
-            continue
-        else:
-            saq = float(input("Digite o valor do saque:"))
-
-        # Saque sem saldo
-        if saq > saldo:
-            print(f"Valor insuficiente para saque. Seu saldo atual é de R$ {saldo}")
-            continue
-        # Saque negativo
-        elif saq <= 0:
-            print("O valor mínimo é R$ 1")
-            continue
-        # Sem saldo
-        elif saldo <= 0:
-            print("Sem saldo para saque")
-            continue
-        # Saque autorizado
-        else:
-            saldo -= saq
-            print(f"Seu novo saldo é R$ {saldo}")
-            LIMITE_SAQUE -= 1
-        
-        #extrato pós saque
-            extrato += f"Saque: -R$ {saq:.2f}\n"
-
-    #Extrato
-    elif escolha == "E":
-        print ("\n=========== EXTRATO ===========")
-        print ("Não foram feitas movimentações" if not extrato else extrato)
-        print (f"\nSeu Saldo é de: R$ {saldo:.2f}")
-
-    #Fim
-    elif escolha == "Q":
-        print("Volte sempre")
-        break
-        
+#extrato
