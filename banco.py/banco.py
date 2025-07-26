@@ -31,6 +31,12 @@ def exibir_extrato(*,saldo,extrato):
     print("====================")
 
 
+saldo = 0
+extrato = ""
+numero_saques = 0
+limite = 500
+limite_saques = 3
+
 while True:
     print("""
     [1] Depositar
@@ -39,3 +45,8 @@ while True:
     [4] Sair
     """)
     opcao = input("Escolha uma opção: ")
+
+    if opcao == "1":
+        valor = float(input("Informe o valor do depósito: "))
+        saldo, extrato = depositar(saldo, valor, extrato)
+
