@@ -21,8 +21,13 @@ def criar_conta(contas):
     contas.append({"Nome": nome, "CPF": cpf, "Nascimento": nascimento, "Endereço": endereco})
     print("Registrado com sucesso!")
     
+def filtro_conta(cpf, contas):
+    for conta in contas:
+        if conta["CPF"] == cpf:
+            return contas
+    return None
 
-criar_conta(contas)
+
 
 #deposito
 def depositar (saldo,valor,extrato):
@@ -87,4 +92,4 @@ while True:
         print("Operação inválida, por favor selecione novamente a operação desejada.")
 
 
-        
+      x  
