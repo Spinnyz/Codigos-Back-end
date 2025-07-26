@@ -1,16 +1,22 @@
 #Banco
 
+#Criação de conta
+
+def criar_conta():
+    cpf = input ("Digite seu CPF")
+
+
 #deposito
-def depositar (saldo,valor,extrato):
-    if valor > 0:
-        saldo+= valor
-        extrato += f'Depósito: R$ {valor:.2f}\n'
-    else:
-        print('Operação falhou! O valor informado é inválido.')
+    def depositar (saldo,valor,extrato):
+        if valor > 0:
+            saldo+= valor
+            extrato += f'Depósito: R$ {valor:.2f}\n'
+        else:
+            print('Operação falhou! O valor informado é inválido.')
     return saldo, extrato
 
 #saque
-def sacar(*, saldo, valor, extrato, limite=500, numero_saques=0, limite_saques=3):
+def sacar(saldo, valor, extrato, limite=500, numero_saques=0, limite_saques=3):
     if saldo >= valor and valor > 0 and limite >= valor and numero_saques < limite_saques:
         saldo -= valor
         extrato += f"Saque: R$ {valor:.2f}\n"
@@ -49,4 +55,18 @@ while True:
     if opcao == "1":
         valor = float(input("Informe o valor do depósito: "))
         saldo, extrato = depositar(saldo, valor, extrato)
+        
+    elif opcao == "2":
+        valor = float(input("Informe o valor do saque: "))
+        saldo, extrato, numero_saques = sacar(saldo, valor, extrato, limite, numero_saques)
+        
+    elif opcao == "3":
+        exibir_extrato(saldo, extrato)
+        
+    elif opcao == "4":
+        break
+    else:
+        print("Operação inválida, por favor selecione novamente a operação desejada.")
 
+
+        
