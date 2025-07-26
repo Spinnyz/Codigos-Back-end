@@ -1,10 +1,6 @@
 user = {}
 
 quan_user = int(input("Digite a quantidade de usuários:"))
-if quan_user.isdigit():
-    quan_user = int(quan_user)
-        break
-
 
 for i in range (quan_user):
     entrada = input("Digite o nome e a profissão: ").strip().capitalize()
